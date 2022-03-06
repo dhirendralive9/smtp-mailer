@@ -9,22 +9,25 @@ async function main() {
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    host: 'smtp.gmail.com', // hostname
+    secureConnection: false, // use SSL
+    port: 587, // port for secure SMTP
     auth: {
-      user: 'gregory.reilly3@ethereal.email', // generated ethereal user
-      pass: 'xf8PMTqcJX8WwEPCUd', // generated ethereal password
+        user: '*********@gmail.com',
+        pass: 'XWxgqQufsV'
     },
+    tls:{
+        ciphers:'SSLv3'
+    }
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Gregory Reilly 👻" <gregory.reilly3@ethereal.email>', // sender address
-    to: "hello@ethereal.email", // list of receivers
+    from: '"Fiulee Trony" <fiuleetrony@gmail.com>', // sender address
+    to: "vishalsharmaraya@gmail.com", // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
+    html: "<b>So Vihsal, Why havent been you joining in office these days</b>", // html body
   });
 
   console.log("Message sent: %s", info.messageId);
